@@ -6,4 +6,7 @@ class Search
   def to_s
     "For the word #{@word_search}, the results of the search are the followings:" + "\n" + @words.map { |word| word.to_s }.join
   end
+  def getWords()
+  	return @words
+  end
 end

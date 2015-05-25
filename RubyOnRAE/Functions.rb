@@ -32,7 +32,12 @@ def get_search(word_entry)
   end
   #Instantiate a Search class with this word in <p></p> tag.
   search = Search.new(words, word_entry)
-  puts search.to_s
+  if search.getWords != []
+     puts search.to_s
+  else
+  	puts "The word #{word_entry} isn't registered in the dictionary"
+  end
+
 end
 
 def main
