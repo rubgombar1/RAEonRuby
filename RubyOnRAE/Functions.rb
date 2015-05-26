@@ -1,3 +1,4 @@
+#encoding: utf-8
 require 'capybara'
 require 'capybara/poltergeist'
 require_relative 'Entry'
@@ -37,7 +38,7 @@ def get_search(word_entry)
   search = Search.new(words, word_entry)
   if search.getWords != []
      puts search.to_s
-  else
+  elsif  page.body.include?("en el Diccionario. ")
   	puts "The word #{word_entry} isn't registered in the dictionary"
   end
 
