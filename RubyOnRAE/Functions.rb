@@ -20,7 +20,10 @@ def get_search(word_entry)
 
   results.each do |result|
     # Get the content of the <span class"f"></span> that content a word
-    word_result = result.all("span.f").map { |x| if x.text != '.'; x.text end}.join ""
+    word_result = result.all("span.f").map { |x| if x.text != '.'; x.text end}.join " "
+    word_result.gsub! "  ", " "
+    word_result.gsub! " ,", ","
+    word_result.gsub!(/ ([0-9])/, "\\1")
     # Create the array that contains the entrys objects.
     entrys = Array.new
     # Get the content of the <span class"b"></span> that content a word definition (entry). { |x| entry =
