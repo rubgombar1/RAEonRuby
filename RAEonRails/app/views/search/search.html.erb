@@ -1,0 +1,15 @@
+<%= form_tag("/search", method: "get") do %>
+  <%= label_tag(:q, "Search for:") %>
+  <%= text_field_tag(:q) %>
+  <%= submit_tag("Search") %>
+<% end %>
+
+<% if @search != nil %>
+	<p>The word that you introduced was: <%= @search.word_search=%></p>
+	<% @search.words.each do |i| %>
+		<p>Word: <%= i.word =%></p>
+		<% i.entries.each do |e| %>
+			<p>Entry for word: <%= e.definition =%></p>
+		<% end %>
+	<% end %>
+<% end %>
